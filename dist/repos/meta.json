@@ -1,0 +1,12 @@
+{
+	"name": "repos",
+	"description": "repos cheatsheet",
+	"scripts": [
+		{
+			"name": "get_options",
+			"file": "get_options.js",
+			"type": "action",
+			"description": "list options"
+		}
+	]
+}
