@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nif (options.repos) {\r\n    open(options.repos.html_url + '/compare/' + args[1] + '...' + args[0] + '?expand=1');\r\n    var description = readAll('.commit-message');\r\n    var descriptionText = description.join('\\n');\r\n    log(descriptionText, 'blue');\r\n    type(descriptionText, '#pull_request_body', { method: 'by_query_selector' });\r\n    click('Create pull request', {});\r\n    notify('pull request created', 'success', 3000);\r\n    reIndex(['github', 'repos', options.repos.name, 'PRs']);\r\n}\r\nelse {\r\n    notify('repo not found', 'error', 3000);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/create.ts?");
+eval("\nif (options.repos) {\n    open(options.repos.html_url + '/compare/' + args[1] + '...' + args[0] + '?expand=1');\n    var description = readAll('.commit-message');\n    var descriptionText = description.join('\\n');\n    log(descriptionText, 'blue');\n    type(descriptionText, '#pull_request_body', { method: 'by_query_selector' });\n    click('Create pull request', {});\n    notify('pull request created', 'success', 3000);\n    reIndex(['github', 'repos', options.repos.name, 'PRs']);\n}\nelse {\n    notify('repo not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/create.ts?");
 
 /***/ })
 

@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar helper_1 = __webpack_require__(/*! ../../../utils/helper */ \"./src/utils/helper.ts\");\r\nvar constants_1 = __webpack_require__(/*! ../../../utils/constants */ \"./src/utils/constants.ts\");\r\nif (options.repos) {\r\n    var userResponse = httpGet(helper_1.getUrl('/user'), {\r\n        Authorization: 'token ' + constants_1.accessToken,\r\n    });\r\n    var user = helper_1.decodeApiResponse(userResponse).response;\r\n    var deleteRawResponse = httpDelete(helper_1.getUrl('/repos/' + user.login + '/' + options.repos.name), null, {\r\n        Authorization: 'token ' + constants_1.accessToken,\r\n    });\r\n    var deleteResponse = helper_1.decodeApiResponse(deleteRawResponse);\r\n    switch (deleteResponse.status) {\r\n        case 204:\r\n            notify('repository deleted', 'success', 3000);\r\n            reIndex(['github', 'repos']);\r\n            break;\r\n        case 403:\r\n        case 404:\r\n            notify(deleteResponse.response.message, 'error', 3000);\r\n            break;\r\n    }\r\n}\r\nelse {\r\n    notify('Repo not found', 'error', 3000);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/remove.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! ../../../utils/helper */ \"./src/utils/helper.ts\");\nvar constants_1 = __webpack_require__(/*! ../../../utils/constants */ \"./src/utils/constants.ts\");\nif (options.repos) {\n    var userResponse = httpGet(helper_1.getUrl('/user'), {\n        Authorization: 'token ' + constants_1.accessToken,\n    });\n    var user = helper_1.decodeApiResponse(userResponse).response;\n    var deleteRawResponse = httpDelete(helper_1.getUrl('/repos/' + user.login + '/' + options.repos.name), null, {\n        Authorization: 'token ' + constants_1.accessToken,\n    });\n    var deleteResponse = helper_1.decodeApiResponse(deleteRawResponse);\n    switch (deleteResponse.status) {\n        case 204:\n            notify('repository deleted', 'success', 3000);\n            reIndex(['github', 'repos']);\n            break;\n        case 403:\n        case 404:\n            notify(deleteResponse.response.message, 'error', 3000);\n            break;\n    }\n}\nelse {\n    notify('Repo not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/remove.ts?");
 
 /***/ }),
 
@@ -116,7 +116,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.accessToken = exports.apiUrl = void 0;\r\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\r\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\r\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.accessToken = exports.apiUrl = void 0;\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
 
 /***/ }),
 
@@ -128,7 +128,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nex
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.decodeApiResponse = exports.getUrl = void 0;\r\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./src/utils/constants.ts\");\r\nexports.getUrl = function (endPoint) {\r\n    return constants_1.apiUrl + endPoint;\r\n};\r\nexports.decodeApiResponse = function (result) {\r\n    if (!result.response) {\r\n        return {\r\n            response: {},\r\n            status: result.status,\r\n        };\r\n    }\r\n    return {\r\n        response: JSON.parse(result.response),\r\n        status: result.status,\r\n    };\r\n};\r\n\n\n//# sourceURL=webpack://main/./src/utils/helper.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.decodeApiResponse = exports.getUrl = void 0;\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./src/utils/constants.ts\");\nexports.getUrl = function (endPoint) {\n    return constants_1.apiUrl + endPoint;\n};\nexports.decodeApiResponse = function (result) {\n    if (!result.response) {\n        return {\n            response: {},\n            status: result.status,\n        };\n    }\n    return {\n        response: JSON.parse(result.response),\n        status: result.status,\n    };\n};\n\n\n//# sourceURL=webpack://main/./src/utils/helper.ts?");
 
 /***/ })
 

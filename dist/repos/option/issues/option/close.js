@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nif (options.issues) {\r\n    open(options.issues.html_url);\r\n    click('Close issue');\r\n    notify('Issue closed', 'success', 3000);\r\n    reIndex(['github', 'repos', options.repos.name, 'issues']);\r\n}\r\nelse {\r\n    notify('Issue not found', 'error', 3000);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/issues/option/close.ts?");
+eval("\nif (options.issues) {\n    open(options.issues.html_url);\n    click('Close issue');\n    notify('Issue closed', 'success', 3000);\n    reIndex(['github', 'repos', options.repos.name, 'issues']);\n}\nelse {\n    notify('Issue not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/issues/option/close.ts?");
 
 /***/ })
 

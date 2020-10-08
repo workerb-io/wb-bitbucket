@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nif (options.PRs) {\r\n    open(options.PRs.html_url);\r\n    click('Close pull request');\r\n    notify('PR closed', 'success', 3000);\r\n    reIndex(['github', 'repos', options.repos.name, 'PRs']);\r\n}\r\nelse {\r\n    notify('PR not found', 'error', 3000);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/option/close.ts?");
+eval("\nif (options.PRs) {\n    open(options.PRs.html_url);\n    click('Close pull request');\n    notify('PR closed', 'success', 3000);\n    reIndex(['github', 'repos', options.repos.name, 'PRs']);\n}\nelse {\n    notify('PR not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/option/close.ts?");
 
 /***/ })
 

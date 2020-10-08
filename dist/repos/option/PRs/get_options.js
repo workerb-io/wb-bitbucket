@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar helper_1 = __webpack_require__(/*! ../../../../utils/helper */ \"./src/utils/helper.ts\");\r\nvar constants_1 = __webpack_require__(/*! ../../../../utils/constants */ \"./src/utils/constants.ts\");\r\nvar pullsList = [];\r\nif (options.repos) {\r\n    var repoResponse = httpGet(helper_1.getUrl(\"/repos/\" + options.repos.owner.login + \"/\" + options.repos.name + \"/pulls?per_page=20&_=\" + new Date().getTime()), {\r\n        Authorization: 'token ' + constants_1.accessToken,\r\n    });\r\n    pullsList = helper_1.decodeApiResponse(repoResponse).response;\r\n}\r\nexports.default = (function () {\r\n    return JSON.stringify({\r\n        add: pullsList.map(function (pull) {\r\n            return {\r\n                name: '#' + pull.number,\r\n                description: pull.title + '(' + pull.state + ')',\r\n                html_url: pull.html_url,\r\n                user: pull.user,\r\n            };\r\n        }),\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/get_options.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! ../../../../utils/helper */ \"./src/utils/helper.ts\");\nvar constants_1 = __webpack_require__(/*! ../../../../utils/constants */ \"./src/utils/constants.ts\");\nvar pullsList = [];\nif (options.repos) {\n    var repoResponse = httpGet(helper_1.getUrl(\"/repos/\" + options.repos.owner.login + \"/\" + options.repos.name + \"/pulls?per_page=20&_=\" + new Date().getTime()), {\n        Authorization: 'token ' + constants_1.accessToken,\n    });\n    pullsList = helper_1.decodeApiResponse(repoResponse).response;\n}\nexports.default = (function () {\n    return JSON.stringify({\n        add: pullsList.map(function (pull) {\n            return {\n                name: '#' + pull.number,\n                description: pull.title + '(' + pull.state + ')',\n                html_url: pull.html_url,\n                user: pull.user,\n            };\n        }),\n    });\n});\n\n\n//# sourceURL=webpack://main/./src/actions/repos/option/PRs/get_options.ts?");
 
 /***/ }),
 
@@ -116,7 +116,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.accessToken = exports.apiUrl = void 0;\r\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\r\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\r\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.accessToken = exports.apiUrl = void 0;\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
 
 /***/ }),
 
@@ -128,7 +128,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nex
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.decodeApiResponse = exports.getUrl = void 0;\r\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./src/utils/constants.ts\");\r\nexports.getUrl = function (endPoint) {\r\n    return constants_1.apiUrl + endPoint;\r\n};\r\nexports.decodeApiResponse = function (result) {\r\n    if (!result.response) {\r\n        return {\r\n            response: {},\r\n            status: result.status,\r\n        };\r\n    }\r\n    return {\r\n        response: JSON.parse(result.response),\r\n        status: result.status,\r\n    };\r\n};\r\n\n\n//# sourceURL=webpack://main/./src/utils/helper.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.decodeApiResponse = exports.getUrl = void 0;\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./src/utils/constants.ts\");\nexports.getUrl = function (endPoint) {\n    return constants_1.apiUrl + endPoint;\n};\nexports.decodeApiResponse = function (result) {\n    if (!result.response) {\n        return {\n            response: {},\n            status: result.status,\n        };\n    }\n    return {\n        response: JSON.parse(result.response),\n        status: result.status,\n    };\n};\n\n\n//# sourceURL=webpack://main/./src/utils/helper.ts?");
 
 /***/ })
 
