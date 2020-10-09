@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/setup.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/pulls/get_options.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/setup.ts":
-/*!******************************!*\
-  !*** ./src/actions/setup.ts ***!
-  \******************************/
+/***/ "./src/actions/workspaces/option/repos/option/pulls/get_options.ts":
+/*!*************************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/pulls/get_options.ts ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nif (args[0]) {\n    setVar('github', [\n        {\n            name: 'accessToken',\n            value: args[0],\n        },\n    ]);\n    notify('Access token added successfully', 'success', 3000);\n    reIndex();\n}\nelse {\n    var tokenName = 'workerB';\n    open('https://github.com/settings/tokens');\n    var currentUrl = readURL();\n    if (currentUrl.indexOf('login') === -1) {\n        var allTokenNames = readAll('span.token-description a');\n        var previousWorkerbTokens = [];\n        for (var _i = 0, allTokenNames_1 = allTokenNames; _i < allTokenNames_1.length; _i++) {\n            var token = allTokenNames_1[_i];\n            if (token.toLowerCase().indexOf(tokenName) !== -1) {\n                previousWorkerbTokens.push(token.trim());\n            }\n        }\n        var workerbToken = !previousWorkerbTokens.length\n            ? ''\n            : previousWorkerbTokens.sort()[previousWorkerbTokens.length - 1];\n        tokenName = workerbToken\n            ? workerbToken.trim().slice(-1) === parseInt(workerbToken.trim().slice(-1), 10).toString()\n                ? \"\" + workerbToken.trim().slice(0, -1) + (Number(workerbToken.trim().slice(-1)) + 1)\n                : workerbToken.trim() + \"1\"\n            : tokenName;\n        click('Generate new token', {\n            method: 'by_text',\n        });\n        type(tokenName, '#oauth_access_description', {\n            method: 'by_query_selector',\n        });\n        click('.token-scope input', {\n            method: 'by_query_selector',\n        });\n        click('Generate token', {\n            method: 'by_text',\n        });\n        var newAuthToken = read('#new-oauth-token', {\n            method: 'by_query_selector',\n        });\n        if (!newAuthToken) {\n            notify(\"Access token can't be empty\", 'error', 3000);\n        }\n        else {\n            setVar('github', [\n                {\n                    name: 'accessToken',\n                    value: newAuthToken,\n                },\n            ]);\n            notify('Access token added successfully', 'success', 3000);\n            reIndex();\n        }\n    }\n    else {\n        notify('Please login into your github account first', 'error', 3000);\n    }\n}\n\n\n//# sourceURL=webpack://main/./src/actions/setup.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../../../../utils/helper'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar constants_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../../../../utils/constants'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar pullsList = [];\nif (options.repos) {\n    var repoResponse = httpGet(helper_1.getUrl(\"/repos/\" + options.repos.owner.login + \"/\" + options.repos.name + \"/pulls?per_page=20&_=\" + new Date().getTime()), {\n        Authorization: 'token ' + constants_1.accessToken,\n    });\n    pullsList = helper_1.decodeApiResponse(repoResponse).response;\n}\nexports.default = (function () {\n    return JSON.stringify({\n        add: pullsList.map(function (pull) {\n            return {\n                name: pull.title,\n                description: pull.description,\n                html_url: pull.html_url,\n                user: pull.user,\n            };\n        }),\n    });\n});\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/pulls/get_options.ts?");
 
 /***/ })
 

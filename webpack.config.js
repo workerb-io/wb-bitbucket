@@ -14,13 +14,14 @@ const entryPaths = helpers.getFiles(entryFiles, ".ts").map(file => file.replace(
 
 const metaFiles = helpers.getFiles(entryFiles, ".json")
 
+console.log(metaFiles)
+
 let copyPatterns = metaFiles.map(
     (metaFile) => ({ from: './src/actions/' + metaFile, to: './' + metaFile })
 )
 
 const rootJSON = fs.readFileSync("./src/actions/meta.json", 'utf8')
 const rootJSONParsed = rootJSON ? JSON.parse(rootJSON) : {}
-
 let iconPath = ""
 
 if (rootJSONParsed.icon) {

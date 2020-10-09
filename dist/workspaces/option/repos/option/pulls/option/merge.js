@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/setup.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/pulls/option/merge.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/setup.ts":
-/*!******************************!*\
-  !*** ./src/actions/setup.ts ***!
-  \******************************/
+/***/ "./src/actions/workspaces/option/repos/option/pulls/option/merge.ts":
+/*!**************************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/pulls/option/merge.ts ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nif (args[0]) {\n    setVar('github', [\n        {\n            name: 'accessToken',\n            value: args[0],\n        },\n    ]);\n    notify('Access token added successfully', 'success', 3000);\n    reIndex();\n}\nelse {\n    var tokenName = 'workerB';\n    open('https://github.com/settings/tokens');\n    var currentUrl = readURL();\n    if (currentUrl.indexOf('login') === -1) {\n        var allTokenNames = readAll('span.token-description a');\n        var previousWorkerbTokens = [];\n        for (var _i = 0, allTokenNames_1 = allTokenNames; _i < allTokenNames_1.length; _i++) {\n            var token = allTokenNames_1[_i];\n            if (token.toLowerCase().indexOf(tokenName) !== -1) {\n                previousWorkerbTokens.push(token.trim());\n            }\n        }\n        var workerbToken = !previousWorkerbTokens.length\n            ? ''\n            : previousWorkerbTokens.sort()[previousWorkerbTokens.length - 1];\n        tokenName = workerbToken\n            ? workerbToken.trim().slice(-1) === parseInt(workerbToken.trim().slice(-1), 10).toString()\n                ? \"\" + workerbToken.trim().slice(0, -1) + (Number(workerbToken.trim().slice(-1)) + 1)\n                : workerbToken.trim() + \"1\"\n            : tokenName;\n        click('Generate new token', {\n            method: 'by_text',\n        });\n        type(tokenName, '#oauth_access_description', {\n            method: 'by_query_selector',\n        });\n        click('.token-scope input', {\n            method: 'by_query_selector',\n        });\n        click('Generate token', {\n            method: 'by_text',\n        });\n        var newAuthToken = read('#new-oauth-token', {\n            method: 'by_query_selector',\n        });\n        if (!newAuthToken) {\n            notify(\"Access token can't be empty\", 'error', 3000);\n        }\n        else {\n            setVar('github', [\n                {\n                    name: 'accessToken',\n                    value: newAuthToken,\n                },\n            ]);\n            notify('Access token added successfully', 'success', 3000);\n            reIndex();\n        }\n    }\n    else {\n        notify('Please login into your github account first', 'error', 3000);\n    }\n}\n\n\n//# sourceURL=webpack://main/./src/actions/setup.ts?");
+eval("\nif (options.pulls) {\n    open(options.pulls.html_url);\n    click('Merge pull request');\n    click('Confirm merge');\n    notify('Pull request merged', 'success', 3000);\n    reIndex(['github', 'repos', options.repos.name]);\n    reIndex(['github', 'repos', options.repos.name, 'pulls']);\n}\nelse {\n    notify('Pull request not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/pulls/option/merge.ts?");
 
 /***/ })
 

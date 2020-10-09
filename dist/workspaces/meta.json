@@ -1,0 +1,18 @@
+{
+	"name": "workspaces",
+	"description": "workspaces cheatsheet",
+	"scripts": [
+		{
+			"name": "get_options",
+			"file": "get_options.js",
+			"type": "action",
+			"description": "list options"
+        },
+        {
+			"name": "option",
+			"file": "option",
+			"type": "folder",
+			"description": "list options"
+		}
+	]
+}

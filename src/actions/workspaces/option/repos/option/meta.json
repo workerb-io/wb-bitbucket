@@ -1,0 +1,12 @@
+{
+	"name": "repos option",
+	"default_action": "open",
+	"scripts": [
+		{
+			"name": "open",
+			"file": "open.js",
+			"type": "action",
+			"description": "Open the repository"
+		}
+	]
+}

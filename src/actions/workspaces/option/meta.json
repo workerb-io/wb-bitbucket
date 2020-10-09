@@ -1,0 +1,17 @@
+{
+	"name": "workspace option",
+	"scripts": [
+        {
+            "name": "open",
+            "file": "open.js",
+            "type": "action",
+            "description": "open workspace"
+        },
+        {
+			"name": "repos",
+			"file": "repos",
+			"type": "folder",
+			"description": "List of repositories"
+		}
+    ]
+}
