@@ -2,12 +2,6 @@
 	"name": "PRs option",
 	"default_action": "open",
 	"scripts": [
-		{
-			"name": "open",
-			"file": "open.js",
-			"type": "action",
-			"description": "Open the repository"
-        },
         {
 			"name": "get_options",
 			"file": "get_options.js",
