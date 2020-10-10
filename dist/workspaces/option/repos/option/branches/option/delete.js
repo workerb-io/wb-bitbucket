@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/PRs/get_options.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/branches/option/delete.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/workspaces/option/repos/option/PRs/get_options.ts":
-/*!***********************************************************************!*\
-  !*** ./src/actions/workspaces/option/repos/option/PRs/get_options.ts ***!
-  \***********************************************************************/
+/***/ "./src/actions/workspaces/option/repos/option/branches/option/delete.ts":
+/*!******************************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/branches/option/delete.ts ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! ../../../../../../utils/helper */ \"./src/utils/helper.ts\");\nvar prs = null;\nvar returnOptions = function () {\n    if (!options.workspaces || !options.repos) {\n        return {};\n    }\n    prs = helper_1.fetchWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + options.repos.slug + \"/pullrequests/\");\n    if (!prs) {\n        return {};\n    }\n    return JSON.stringify({\n        add: prs.map(function (pr) { return (__assign(__assign({}, pr), { name: pr.title })); })\n    });\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/PRs/get_options.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar constants_1 = __webpack_require__(/*! utils/constants */ \"./src/utils/constants.ts\");\nvar helper_1 = __webpack_require__(/*! utils/helper */ \"./src/utils/helper.ts\");\nif (!options.workspaces || !options.repos) {\n    notify(\"Workspace or repo is not selected\", \"success\", 3000);\n}\ntry {\n    helper_1.DeleteWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + options.repos.slug + \"/refs/branches/\" + options.branches.name);\n    notify(\"Branch deleted\", \"success\", 3000);\n    reIndex([constants_1.PACKAGE_NAME, \"workspaces\", options.workspaces.name, \"repos\", options.repos.name, \"branches\"]);\n}\ncatch (error) {\n    throw error;\n}\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/branches/option/delete.ts?");
 
 /***/ }),
 
