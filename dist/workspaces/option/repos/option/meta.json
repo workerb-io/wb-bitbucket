@@ -7,6 +7,18 @@
 			"file": "open.js",
 			"type": "action",
 			"description": "Open the repository"
+		},
+		{
+			"name": "PRs",
+			"file": "PRs",
+			"type": "folder",
+			"description": "Pull Requests"
+		},
+		{
+			"name": "branches",
+			"file": "branches",
+			"type": "folder",
+			"description": "branches"
 		}
 	]
 }

@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar constants_1 = __webpack_require__(/*! ../utils/constants */ \"./src/utils/constants.ts\");\nvar returnOptions = function () {\n    if (!constants_1.accessToken) {\n        return JSON.stringify({\n            remove: ['repos', 'search'],\n        });\n    }\n    else {\n        return JSON.stringify({\n            remove: ['setup'],\n        });\n    }\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/get_options.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar constants_1 = __webpack_require__(/*! ../utils/constants */ \"./src/utils/constants.ts\");\r\nvar returnOptions = function () {\r\n    if (!constants_1.accessToken) {\r\n        return JSON.stringify({\r\n            remove: ['repos', 'search'],\r\n        });\r\n    }\r\n    else {\r\n        return JSON.stringify({\r\n            remove: ['setup'],\r\n        });\r\n    }\r\n};\r\nexports.default = returnOptions;\r\n\n\n//# sourceURL=webpack://main/./src/actions/get_options.ts?");
 
 /***/ }),
 
@@ -116,7 +116,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar co
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.accessToken = exports.apiUrl = void 0;\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.PACKAGE_NAME = exports.accessToken = exports.apiUrl = void 0;\r\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\r\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\r\nexports.PACKAGE_NAME =  false ? undefined : \"dist\";\r\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
 
 /***/ })
 

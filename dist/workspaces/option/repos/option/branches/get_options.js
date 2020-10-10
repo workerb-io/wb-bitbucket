@@ -104,7 +104,31 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../../../../utils/helper'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar constants_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../../../../utils/constants'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar branchesList = [];\nif (options.repos) {\n    var branchResponse = httpGet(helper_1.getUrl(\"/repos/\" + options.repos.owner.login + \"/\" + options.repos.name + \"/branches?per_page=20&_=\" + new Date().getTime()), {\n        Authorization: 'token ' + constants_1.accessToken,\n    });\n    branchesList = helper_1.decodeApiResponse(branchResponse).response;\n}\nexports.default = (function () {\n    return JSON.stringify({\n        add: branchesList.map(function (branch) {\n            return {\n                name: branch.name,\n                description: branch.commit.sha,\n                html_url: options.repos.html_url + \"/commit/\" + branch.commit.sha,\n            };\n        }),\n    });\n});\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/branches/get_options.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar helper_1 = __webpack_require__(/*! ../../../../../../utils/helper */ \"./src/utils/helper.ts\");\r\nvar branches = null;\r\nvar returnOptions = function () {\r\n    if (!options.workspaces || !options.repos) {\r\n        return {};\r\n    }\r\n    branches = helper_1.fetchWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + options.repos.slug + \"/refs/branches\");\r\n    if (!branches) {\r\n        return {};\r\n    }\r\n    return JSON.stringify({\r\n        add: branches\r\n    });\r\n};\r\nexports.default = returnOptions;\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/branches/get_options.ts?");
+
+/***/ }),
+
+/***/ "./src/utils/constants.ts":
+/*!********************************!*\
+  !*** ./src/utils/constants.ts ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.PACKAGE_NAME = exports.accessToken = exports.apiUrl = void 0;\r\nexports.apiUrl = 'https://api.bitbucket.org/2.0/';\r\nexports.accessToken = \"bWFub2pzaW5naG5lZ2k6MlJoOVBIbWR0clc1RFdkVVhYZ1U=\";\r\nexports.PACKAGE_NAME =  false ? undefined : \"dist\";\r\n\n\n//# sourceURL=webpack://main/./src/utils/constants.ts?");
+
+/***/ }),
+
+/***/ "./src/utils/helper.ts":
+/*!*****************************!*\
+  !*** ./src/utils/helper.ts ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.UpdateWithAuth = exports.fetchWithAuth = exports.decodeApiResponse = exports.getUrl = void 0;\r\nvar constants_1 = __webpack_require__(/*! ./constants */ \"./src/utils/constants.ts\");\r\nexports.getUrl = function (endPoint) {\r\n    return constants_1.apiUrl + endPoint;\r\n};\r\nexports.decodeApiResponse = function (result) {\r\n    if (!result.response) {\r\n        return {\r\n            response: {},\r\n            status: result.status,\r\n        };\r\n    }\r\n    return {\r\n        response: JSON.parse(result.response),\r\n        status: result.status,\r\n    };\r\n};\r\nexports.fetchWithAuth = function (endPoint) {\r\n    var apiResponse = httpGet(exports.getUrl(endPoint), {\r\n        Authorization: 'Basic ' + constants_1.accessToken\r\n    });\r\n    var decodedApiResponse = exports.decodeApiResponse(apiResponse);\r\n    var _a = decodedApiResponse.response, response = _a === void 0 ? {} : _a;\r\n    if (response.type === \"error\") {\r\n        throw response.error.message;\r\n    }\r\n    return response.values || null;\r\n};\r\nfunction UpdateWithAuth(endPoint, payload) {\r\n    var apiResponse = httpPost(exports.getUrl(endPoint), JSON.stringify(payload), {\r\n        Authorization: 'Basic ' + constants_1.accessToken,\r\n        \"content-type\": \"application/json\"\r\n    });\r\n    var decodedApiResponse = exports.decodeApiResponse(apiResponse);\r\n    var _a = decodedApiResponse.response, response = _a === void 0 ? {} : _a;\r\n    if (response.type === \"error\") {\r\n        notify(response.error.message, \"error\", 3000);\r\n        throw response.error.message;\r\n    }\r\n    return response.values;\r\n}\r\nexports.UpdateWithAuth = UpdateWithAuth;\r\n\n\n//# sourceURL=webpack://main/./src/utils/helper.ts?");
 
 /***/ })
 

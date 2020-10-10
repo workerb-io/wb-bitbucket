@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/new.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/PRs/get_options.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/workspaces/option/repos/new.ts":
-/*!****************************************************!*\
-  !*** ./src/actions/workspaces/option/repos/new.ts ***!
-  \****************************************************/
+/***/ "./src/actions/workspaces/option/repos/option/PRs/get_options.ts":
+/*!***********************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/PRs/get_options.ts ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar constants_1 = __webpack_require__(/*! utils/constants */ \"./src/utils/constants.ts\");\r\nvar helper_1 = __webpack_require__(/*! utils/helper */ \"./src/utils/helper.ts\");\r\nif (!options.workspaces) {\r\n    notify(\"Workspace is not selected\", \"success\", 3000);\r\n}\r\nvar repoName = args[0];\r\nif (!repoName) {\r\n    repoName = prompt(\"What is the repo name?\");\r\n}\r\nvar payload = {\r\n    \"scm\": \"git\"\r\n};\r\ntry {\r\n    helper_1.UpdateWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + repoName, payload);\r\n    notify(\"PR created\", \"success\", 3000);\r\n    reIndex([constants_1.PACKAGE_NAME, \"workspaces\", options.workspaces.name, \"repos\"]);\r\n}\r\ncatch (error) {\r\n    throw error;\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/new.ts?");
+eval("\r\nvar __assign = (this && this.__assign) || function () {\r\n    __assign = Object.assign || function(t) {\r\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\r\n            s = arguments[i];\r\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\r\n                t[p] = s[p];\r\n        }\r\n        return t;\r\n    };\r\n    return __assign.apply(this, arguments);\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar helper_1 = __webpack_require__(/*! ../../../../../../utils/helper */ \"./src/utils/helper.ts\");\r\nvar prs = null;\r\nvar returnOptions = function () {\r\n    if (!options.workspaces || !options.repos) {\r\n        return {};\r\n    }\r\n    prs = helper_1.fetchWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + options.repos.slug + \"/pullrequests/\");\r\n    if (!prs) {\r\n        return {};\r\n    }\r\n    return JSON.stringify({\r\n        add: prs.map(function (pr) { return (__assign(__assign({}, pr), { name: pr.title })); })\r\n    });\r\n};\r\nexports.default = returnOptions;\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/PRs/get_options.ts?");
 
 /***/ }),
 

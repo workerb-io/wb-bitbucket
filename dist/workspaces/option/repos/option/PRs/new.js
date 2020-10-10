@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/new.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/PRs/new.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/workspaces/option/repos/new.ts":
-/*!****************************************************!*\
-  !*** ./src/actions/workspaces/option/repos/new.ts ***!
-  \****************************************************/
+/***/ "./src/actions/workspaces/option/repos/option/PRs/new.ts":
+/*!***************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/PRs/new.ts ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar constants_1 = __webpack_require__(/*! utils/constants */ \"./src/utils/constants.ts\");\r\nvar helper_1 = __webpack_require__(/*! utils/helper */ \"./src/utils/helper.ts\");\r\nif (!options.workspaces) {\r\n    notify(\"Workspace is not selected\", \"success\", 3000);\r\n}\r\nvar repoName = args[0];\r\nif (!repoName) {\r\n    repoName = prompt(\"What is the repo name?\");\r\n}\r\nvar payload = {\r\n    \"scm\": \"git\"\r\n};\r\ntry {\r\n    helper_1.UpdateWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + repoName, payload);\r\n    notify(\"PR created\", \"success\", 3000);\r\n    reIndex([constants_1.PACKAGE_NAME, \"workspaces\", options.workspaces.name, \"repos\"]);\r\n}\r\ncatch (error) {\r\n    throw error;\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/new.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar constants_1 = __webpack_require__(/*! ../../../../../../utils/constants */ \"./src/utils/constants.ts\");\r\nvar helper_1 = __webpack_require__(/*! ../../../../../../utils/helper */ \"./src/utils/helper.ts\");\r\nif (!options.workspaces || !options.repos) {\r\n    notify(\"Workspace or repo is not selected\", \"success\", 3000);\r\n}\r\nvar source = args[0];\r\nvar destination = args[1];\r\nvar title = prompt(\"PR title\");\r\nif (!source) {\r\n    source = prompt(\"What is the source branch?\");\r\n}\r\nif (!destination) {\r\n    destination = prompt(\"What is the destination branch?\");\r\n}\r\nvar payload = {\r\n    title: title,\r\n    \"source\": {\r\n        \"branch\": {\r\n            \"name\": source\r\n        }\r\n    },\r\n    \"destination\": {\r\n        \"branch\": {\r\n            \"name\": destination\r\n        }\r\n    }\r\n};\r\ntry {\r\n    helper_1.UpdateWithAuth(\"repositories/\" + options.workspaces.uuid + \"/\" + options.repos.slug + \"/pullrequests/\", payload);\r\n    notify(\"PR created\", \"success\", 3000);\r\n    reIndex([constants_1.PACKAGE_NAME, \"workspaces\", options.workspaces.name, \"repos\", options.repos.name, \"PRs\"]);\r\n}\r\ncatch (error) {\r\n    throw error;\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/PRs/new.ts?");
 
 /***/ }),
 

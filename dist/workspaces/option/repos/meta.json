@@ -13,6 +13,12 @@
 			"file": "get_options.js",
 			"type": "action",
 			"description": "list options"
+		},
+		{
+			"name": "new",
+			"file": "new.js",
+			"type": "action",
+			"description": "new repo"
 		}
 	]
 }

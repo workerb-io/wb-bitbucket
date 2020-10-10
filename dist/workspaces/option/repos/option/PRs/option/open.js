@@ -91,20 +91,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/pulls/option/close.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/workspaces/option/repos/option/PRs/option/open.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/actions/workspaces/option/repos/option/pulls/option/close.ts":
-/*!**************************************************************************!*\
-  !*** ./src/actions/workspaces/option/repos/option/pulls/option/close.ts ***!
-  \**************************************************************************/
+/***/ "./src/actions/workspaces/option/repos/option/PRs/option/open.ts":
+/*!***********************************************************************!*\
+  !*** ./src/actions/workspaces/option/repos/option/PRs/option/open.ts ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nif (options.pulls) {\n    open(options.pulls.html_url);\n    click('Close pull request');\n    notify('Pull request closed', 'success', 3000);\n    reIndex(['github', 'repos', options.repos.name, 'pulls']);\n}\nelse {\n    notify('Pull request not found', 'error', 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/pulls/option/close.ts?");
+eval("\r\nif (options.PRs) {\r\n    open(options.PRs.links.html.href);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/PRs/option/open.ts?");
 
 /***/ })
 

@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nif (options.workspaces) {\n    open(options.workspaces.links.html.href);\n}\nelse {\n    notify(\"No workspace selected\", \"error\", 3000);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/open.ts?");
+eval("\r\nif (options.workspaces) {\r\n    open(options.workspaces.links.html.href);\r\n}\r\nelse {\r\n    notify(\"No workspace selected\", \"error\", 3000);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/open.ts?");
 
 /***/ })
 

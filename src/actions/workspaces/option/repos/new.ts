@@ -1,33 +1,28 @@
-open('https://github.com/new')
+import { PACKAGE_NAME } from "utils/constants"
+import { UpdateWithAuth } from "utils/helper"
 
-const organisationName = args[1]
-let repoName: string | null = args[0]
+interface RepoRequestObject {
+    scm: string,
+}
+
+if (!options.workspaces) {
+    notify("Workspace is not selected", "success", 3000)
+}
+
+let repoName: string = args[0]
 
 if (!repoName) {
-	repoName = prompt('Name for the new repository')
+    repoName = prompt("What is the repo name?")
 }
 
-click('#repository_name', { method: 'by_query_selector' })
-let repoNameAsString = repoName as string
-type(repoNameAsString, '#repository_name', { method: 'by_query_selector' })
-log('Checking if the organisation name is provided', 'info')
-
-if (organisationName) {
-	click('[aria-describedby="repository-owner-label"]', {
-		method: 'by_query_selector',
-	})
-	click('[data-org-name="' + organisationName + '"]', {
-		method: 'by_query_selector',
-	})
+const payload: RepoRequestObject = {
+	"scm": "git"
 }
 
-click('Private')
-
-log('Creating the repository', 'info')
-click('Create repository', {
-	expectReload: true,
-})
-notify('Repository created', 'success', 3000)
-reIndex(['github', 'repos'])
-
-// Abstract knowledge -> Inflated knowledge -> Smart recommender??
+try {
+    UpdateWithAuth<RepoRequestObject, any>(`repositories/${options.workspaces.uuid}/${repoName}`, payload)
+    notify("PR created", "success", 3000)
+    reIndex([PACKAGE_NAME, "workspaces", options.workspaces.name, "repos"])
+} catch (error) {
+    throw error
+}
