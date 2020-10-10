@@ -11,13 +11,13 @@
 		},
 		{
 			"name": "get_options",
-			"file": "get_options",
+			"file": "get_options.js",
 			"type": "action",
 			"description": "List of workspaces"
 		},
 		{
 			"name": "setup",
-			"file": "setup.ts",
+			"file": "setup.js",
 			"type": "action",
 			"description": "Setup bitbucket token"
 		}
