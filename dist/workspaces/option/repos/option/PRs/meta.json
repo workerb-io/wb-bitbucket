@@ -8,12 +8,6 @@
 			"type": "action",
 			"description": "new pull request"
 		},
-		{
-			"name": "open",
-			"file": "open.js",
-			"type": "action",
-			"description": "Open the repository"
-        },
         {
 			"name": "get_options",
 			"file": "get_options.js",
