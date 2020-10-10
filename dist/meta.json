@@ -8,6 +8,18 @@
 			"file": "workspaces",
 			"type": "folder",
 			"description": "List of workspaces"
+		},
+		{
+			"name": "get_options",
+			"file": "get_options",
+			"type": "action",
+			"description": "List of workspaces"
+		},
+		{
+			"name": "setup",
+			"file": "setup.ts",
+			"type": "action",
+			"description": "Setup bitbucket token"
 		}
 	]
 }

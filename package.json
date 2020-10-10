@@ -1,5 +1,5 @@
 {
-	"name": "wb-github",
+	"name": "wb-bitbucket",
 	"version": "1.0.0",
 	"description": "github package for workerB",
 	"scripts": {

@@ -1,72 +1,62 @@
+import { PACKAGE_NAME } from "../utils/constants"
+
+let appPassword = null
+
+const username = prompt("What is your bitbucket username?")
+
+if (!username) {
+	const error = "Username is required in order to setup bitbucket"
+	notify(error, "error", 6000)
+	throw error
+}
+
 if (args[0]) {
-	setVar('github', [
+	appPassword = args[0]
+} else {
+	open("https://bitbucket.org/account/settings/app-passwords/new")
+
+	const tokenName = `workerb-${new Date().getTime()}`
+
+	type(tokenName, '#id_name', {method: 'by_query_selector'})
+
+	// give all the permissions
+	click('account:write', {})
+	click('team:write', {})
+	click('project:write', {})
+	click('repository:write', {})
+	click('repository:admin', {})
+	click('repository:delete', {})
+	click('pipeline:variable', {})
+	click('webhook', {})
+	click('snippet:write', {})
+	click('wiki', {})
+	click('issue:write', {})
+	click('pullrequest:write', {})
+
+	click('Create', {
+		expectReload: true
+	})
+
+	appPassword = read('.app-passwords--password', { method: 'by_query_selector' })
+
+	click('Close', {})
+}
+
+if (!appPassword) {
+	notify('Failed to save the auth token.', 'error', 3000)
+} else {
+	const token = btoa(`${username}:${appPassword}`)
+
+	log(token)
+	log(username)
+	log(appPassword)
+
+	setVar(PACKAGE_NAME, [
 		{
-			name: 'accessToken',
-			value: args[0],
+			name: 'BITBUCKET_PERSONAL_TOKEN',
+			value: token,
 		},
 	])
-	notify('Access token added successfully', 'success', 3000)
+	notify('Access token added successfully.', 'success', 3000)
 	reIndex()
-} else {
-	let tokenName = 'workerB'
-
-	open('https://github.com/settings/tokens')
-
-	const currentUrl = readURL()
-
-	if (currentUrl.indexOf('login') === -1) {
-		const allTokenNames = readAll('span.token-description a')
-		const previousWorkerbTokens = []
-
-		for (const token of allTokenNames) {
-			if (token.toLowerCase().indexOf(tokenName) !== -1) {
-				previousWorkerbTokens.push(token.trim())
-			}
-		}
-
-		let workerbToken = !previousWorkerbTokens.length
-			? ''
-			: previousWorkerbTokens.sort()[previousWorkerbTokens.length - 1]
-
-		tokenName = workerbToken
-			? workerbToken.trim().slice(-1) === parseInt(workerbToken.trim().slice(-1), 10).toString()
-				? `${workerbToken.trim().slice(0, -1)}${Number(workerbToken.trim().slice(-1)) + 1}`
-				: `${workerbToken.trim()}1`
-			: tokenName
-
-		click('Generate new token', {
-			method: 'by_text',
-		})
-
-		type(tokenName, '#oauth_access_description', {
-			method: 'by_query_selector',
-		})
-
-		click('.token-scope input', {
-			method: 'by_query_selector',
-		})
-
-		click('Generate token', {
-			method: 'by_text',
-		})
-
-		let newAuthToken = read('#new-oauth-token', {
-			method: 'by_query_selector',
-		})
-
-		if (!newAuthToken) {
-			notify("Access token can't be empty", 'error', 3000)
-		} else {
-			setVar('github', [
-				{
-					name: 'accessToken',
-					value: newAuthToken,
-				},
-			])
-			notify('Access token added successfully', 'success', 3000)
-			reIndex()
-		}
-	} else {
-		notify('Please login into your github account first', 'error', 3000)
-	}
 }
