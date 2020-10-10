@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar searchTerm = args[0];\r\nif (!searchTerm) {\r\n    searchTerm = prompt('What do you want to search for?');\r\n}\r\nif (searchTerm.length > 0) {\r\n    open('https://github.com/search?q=' + searchTerm);\r\n}\r\nelse {\r\n    open('https://github.com/search');\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/search.ts?");
+eval("\nvar searchTerm = args[0];\nif (!searchTerm) {\n    searchTerm = prompt('What do you want to search for?');\n}\nif (searchTerm.length > 0) {\n    open('https://github.com/search?q=' + searchTerm);\n}\nelse {\n    open('https://github.com/search');\n}\n\n\n//# sourceURL=webpack://main/./src/actions/search.ts?");
 
 /***/ })
 

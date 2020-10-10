@@ -33,12 +33,18 @@ export const fetchWithAuth = (endPoint: string): any => {
 	return response.values || null
 }
 
-export function UpdateWithAuth<P, R>(endPoint: string, payload: P): R {
+export function UpdateWithAuth<P, R>(endPoint: string, payload?: P): R {
 
-	const apiResponse = httpPost(getUrl(endPoint), JSON.stringify(payload), {
-		Authorization: 'Basic ' + accessToken,
-		"content-type": "application/json"
-	})
+	const stringifiedData: string | null = payload ? JSON.stringify(payload) : null
+	const headers: any = {
+		Authorization: 'Basic ' + accessToken
+	}
+
+	if (stringifiedData) {
+		headers["content-type"] = "application/json"
+	}
+
+	const apiResponse = httpPost(getUrl(endPoint), stringifiedData, headers)
 	
 	const decodedApiResponse = decodeApiResponse(apiResponse)
 	const { response = {} } = decodedApiResponse

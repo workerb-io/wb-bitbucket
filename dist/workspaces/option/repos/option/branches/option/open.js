@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nif (options.branches) {\r\n    open(options.branches.links.html.href);\r\n}\r\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/branches/option/open.ts?");
+eval("\nif (options.branches) {\n    open(options.branches.links.html.href);\n}\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/option/branches/option/open.ts?");
 
 /***/ })
 

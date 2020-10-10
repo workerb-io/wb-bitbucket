@@ -1,12 +1,24 @@
 {
-	"name": "repos option",
+	"name": "prs option",
 	"default_action": "open",
 	"scripts": [
 		{
 			"name": "open",
 			"file": "open.js",
 			"type": "action",
-			"description": "Open the repository"
+			"description": "Open the pull request"
+		},
+		{
+			"name": "merge",
+			"file": "merge.js",
+			"type": "action",
+			"description": "merge the pull request"
+		},
+		{
+			"name": "decline",
+			"file": "decline.js",
+			"type": "action",
+			"description": "decline the pull request"
 		}
 	]
 }
