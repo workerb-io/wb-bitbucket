@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! ../../../../utils/helper */ \"./src/utils/helper.ts\");\nvar repositories = null;\nvar returnOptions = function () {\n    if (!options.workspaces) {\n        return {};\n    }\n    repositories = helper_1.fetchWithAuth(\"repositories/\" + options.workspaces.uuid);\n    if (!repositories) {\n        return {};\n    }\n    return JSON.stringify({\n        add: repositories\n    });\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/get_options.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! utils/helper */ \"./src/utils/helper.ts\");\nvar repositories = null;\nvar returnOptions = function () {\n    if (!options.workspaces) {\n        return {};\n    }\n    repositories = helper_1.fetchWithAuth(\"repositories/\" + options.workspaces.uuid);\n    if (!repositories) {\n        return {};\n    }\n    return JSON.stringify({\n        add: repositories\n    });\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/option/repos/get_options.ts?");
 
 /***/ }),
 

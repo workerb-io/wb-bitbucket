@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! ../../utils/helper */ \"./src/utils/helper.ts\");\nvar constants_1 = __webpack_require__(/*! ../../utils/constants */ \"./src/utils/constants.ts\");\nvar repoResponse = httpGet(helper_1.getUrl(\"workspaces\"), {\n    Authorization: 'Basic ' + constants_1.accessToken\n});\nvar repoApiResponse = helper_1.decodeApiResponse(repoResponse);\nvar workspacesResponse = repoApiResponse.response;\nvar workspaces = workspacesResponse.values;\nvar returnOptions = function () {\n    if (!workspaces) {\n        return {};\n    }\n    return JSON.stringify({\n        add: workspaces\n    });\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/get_options.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar helper_1 = __webpack_require__(/*! utils/helper */ \"./src/utils/helper.ts\");\nvar constants_1 = __webpack_require__(/*! utils/constants */ \"./src/utils/constants.ts\");\nvar repoResponse = httpGet(helper_1.getUrl(\"workspaces\"), {\n    Authorization: 'Basic ' + constants_1.accessToken\n});\nvar repoApiResponse = helper_1.decodeApiResponse(repoResponse);\nvar workspacesResponse = repoApiResponse.response;\nvar workspaces = workspacesResponse.values;\nvar returnOptions = function () {\n    if (!workspaces) {\n        return {};\n    }\n    return JSON.stringify({\n        add: workspaces\n    });\n};\nexports.default = returnOptions;\n\n\n//# sourceURL=webpack://main/./src/actions/workspaces/get_options.ts?");
 
 /***/ }),
 

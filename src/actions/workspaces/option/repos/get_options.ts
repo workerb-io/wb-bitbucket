@@ -1,4 +1,4 @@
-import { fetchWithAuth } from "../../../../utils/helper"
+import { fetchWithAuth } from "utils/helper"
 
 let repositories: any[] | null = null
 

@@ -1,5 +1,5 @@
-import { getUrl, decodeApiResponse } from '../../utils/helper'
-import { accessToken } from '../../utils/constants'
+import { getUrl, decodeApiResponse } from 'utils/helper'
+import { accessToken } from 'utils/constants'
 
 var repoResponse = httpGet(getUrl(`workspaces`), {
 	Authorization: 'Basic ' + accessToken
