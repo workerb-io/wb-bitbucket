@@ -1,24 +1,20 @@
 {
-	"name": "PRs option",
-	"default_action": "open",
-	"scripts": [
-		{
-			"name": "new",
-			"file": "new.js",
-			"type": "action",
-			"description": "new pull request"
-		},
-        {
-			"name": "get_options",
-			"file": "get_options.js",
-			"type": "action",
-			"description": "list repository PRs"
-		},
-		{
-			"name": "option",
-			"file": "option",
-			"type": "folder",
-			"description": "Pull Requests option"
-		}
-	]
-}
+		"name": "PRs",
+		"description": "",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "new",
+	  "file": "new.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "option",
+	  "file": "option",
+	  "type": "folder",
+	  "description": ""
+	}]
+	}
