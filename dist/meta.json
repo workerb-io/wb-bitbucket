@@ -1,25 +1,25 @@
 {
-	"name": "github",
-	"description": "workerB package for github.com",
-	"sites": ["https://www.github.com"],
-	"scripts": [
-		{
-			"name": "workspaces",
-			"file": "workspaces",
-			"type": "folder",
-			"description": "List of workspaces"
-		},
-		{
-			"name": "get_options",
-			"file": "get_options.js",
-			"type": "action",
-			"description": "List of workspaces"
-		},
-		{
-			"name": "setup",
-			"file": "setup.js",
-			"type": "action",
-			"description": "Setup bitbucket token"
-		}
-	]
-}
+		"name": "wb-bitbucket",
+		"description": "test",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "search",
+	  "file": "search.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "setup",
+	  "file": "setup.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "workspaces",
+	  "file": "workspaces",
+	  "type": "folder",
+	  "description": ""
+	}]
+	}

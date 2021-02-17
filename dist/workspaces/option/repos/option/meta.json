@@ -1,24 +1,20 @@
 {
-	"name": "repos option",
-	"default_action": "open",
-	"scripts": [
-		{
-			"name": "open",
-			"file": "open.js",
-			"type": "action",
-			"description": "Open the repository"
-		},
-		{
-			"name": "PRs",
-			"file": "PRs",
-			"type": "folder",
-			"description": "Pull Requests"
-		},
-		{
-			"name": "branches",
-			"file": "branches",
-			"type": "folder",
-			"description": "branches"
-		}
-	]
-}
+		"name": "option",
+		"description": "",
+		"scripts": [{
+	  "name": "open",
+	  "file": "open.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "PRs",
+	  "file": "PRs",
+	  "type": "folder",
+	  "description": ""
+	},{
+	  "name": "branches",
+	  "file": "branches",
+	  "type": "folder",
+	  "description": ""
+	}]
+	}

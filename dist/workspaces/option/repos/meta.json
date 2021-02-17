@@ -1,30 +1,25 @@
 {
-	"name": "repos",
-	"description": "repos cheatsheet",
-	"scripts": [
-		{
-			"name": "option",
-			"file": "option",
-			"type": "folder",
-			"description": "actions for selected repo"
-		},
-		{
-			"name": "get_options",
-			"file": "get_options.js",
-			"type": "action",
-			"description": "list options"
-		},
-		{
-			"name": "new",
-			"file": "new.js",
-			"type": "action",
-			"description": "new repo"
-		},
-		{
-			"name": "search",
-			"file": "search.js",
-			"type": "action",
-			"description": "search repos"
-		}
-	]
-}
+		"name": "repos",
+		"description": "",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "new",
+	  "file": "new.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "search",
+	  "file": "search.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "option",
+	  "file": "option",
+	  "type": "folder",
+	  "description": ""
+	}]
+	}

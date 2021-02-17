@@ -1,24 +1,15 @@
 {
-	"name": "PRs option",
-	"default_action": "open",
-	"scripts": [
-		{
-			"name": "open",
-			"file": "open.js",
-			"type": "action",
-			"description": "Open the repository"
-        },
-        {
-			"name": "get_options",
-			"file": "get_options.js",
-			"type": "action",
-			"description": "list repository PRs"
-		},
-		{
-			"name": "option",
-			"file": "option",
-			"type": "folder",
-			"description": "Pull Requests option"
-		}
-	]
-}
+		"name": "branches",
+		"description": "",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "option",
+	  "file": "option",
+	  "type": "folder",
+	  "description": ""
+	}]
+	}
