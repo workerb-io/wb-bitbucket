@@ -61,7 +61,7 @@ if (!appPassword) {
     ],
     { local: true }
   );
-  notify("Access token added successfully." + token, "success", 3000);
+  notify("Access token added successfully.", "success", 3000);
 
   reIndex();
 }
