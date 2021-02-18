@@ -1,7 +1,8 @@
 {
 	"name": "github",
-	"description": "workerB package for github.com",
-	"sites": ["https://www.github.com"],
+	"description": "workerB package for bitbucket.com",
+	"sites": ["https://www.bitbucket.com"],
+	"icon": "./logo.png",
 	"scripts": [
 		{
 			"name": "workspaces",

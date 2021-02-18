@@ -1,6 +1,7 @@
 {
-		"name": "wb-bitbucket",
-		"description": "test",
+		"name": "BitBucket",
+		"description": "workerB package for bitbucket.com",
+		"icon": "icons/logo5144eb50-4a94-436f-8086-dc2d5bf54e03.png",
 		"scripts": [{
 	  "name": "get_options",
 	  "file": "get_options.js",

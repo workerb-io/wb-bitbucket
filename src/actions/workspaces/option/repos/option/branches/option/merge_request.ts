@@ -1,4 +1,4 @@
-import { createPR } from "utils/helper"
+import { createPR } from "../../../../../../../utils/helper"
 
 if (!options.workspaces || !options.repos) {
     notify("Workspace or repo is not selected", "success", 3000)
