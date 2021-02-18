@@ -57,7 +57,7 @@ module.exports = {
   plugins: [
     new WBMetaJsonGenerator({
       environment,
-      package: "BitBucket",
+      package: "Bitbucket",
       packageDescription: "workerB package for bitbucket.com",
       packageIcon: "src/actions/logo.png",
       readmeFile: "README.md",
