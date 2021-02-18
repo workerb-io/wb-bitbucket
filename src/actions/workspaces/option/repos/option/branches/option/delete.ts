@@ -1,5 +1,5 @@
-import { PACKAGE_NAME } from "utils/constants"
-import { DeleteWithAuth } from "utils/helper"
+import { PACKAGE_NAME } from "../../../../../../../utils/constants"
+import { DeleteWithAuth } from "../../../../../../../utils/helper"
 
 if (!options.workspaces || !options.repos) {
     notify("Workspace or repo is not selected", "success", 3000)

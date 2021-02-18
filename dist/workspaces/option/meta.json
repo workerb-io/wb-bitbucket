@@ -12,9 +12,4 @@
 	  "type": "folder",
 	  "description": ""
 	}]
-	}le": "repos",
-			"type": "folder",
-			"description": "List of repositories"
-		}
-    ]
-}
+	}

@@ -4,32 +4,25 @@ const webpack = require("webpack");
 const fs = require("fs");
 const helpers = require("./webpack.helpers.js");
 const WBMetaJsonGenerator = require("wb-packager-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const fileSystem = helpers.generateFS(__dirname + "/src/actions", "workerB");
 
 const entryFiles = helpers.generateEntryPaths(fileSystem.children);
 
+const mode = process.argv.filter((val) => val.includes("--mode"));
+let environment = "production";
+if (mode.length > 0 && mode[0].includes("dev")) {
+  environment = "development";
+}
+
 const entryPaths = helpers
   .getFiles(entryFiles, ".ts")
   .map((file) => file.replace(".ts", ""));
 
-const metaFiles = helpers.getFiles(entryFiles, ".json");
-
-console.log(metaFiles);
-
-let copyPatterns = metaFiles.map((metaFile) => ({
-  from: "./src/actions/" + metaFile,
-  to: "./" + metaFile,
-}));
-
-const rootJSON = fs.readFileSync("./src/actions/meta.json", "utf8");
-const rootJSONParsed = rootJSON ? JSON.parse(rootJSON) : {};
-let iconPath = "";
-
-if (rootJSONParsed.icon) {
-  iconPath = path.join("./src/actions", rootJSONParsed.icon);
-  copyPatterns.concat({ from: iconPath, to: "./" });
-}
+const folderDescriptionList = [
+  
+];
 
 module.exports = {
   entry: entryPaths.reduce((result, entryPath) => {
@@ -45,9 +38,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      utils: path.resolve(__dirname, "src/utils/"),
-    },
   },
   module: {
     rules: [
@@ -65,29 +55,25 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyPlugin({
-      patterns: copyPatterns,
-      options: {
-        concurrency: 100,
-      },
-    }),
     new WBMetaJsonGenerator({
-      environment: "development",
-      package: "wb-bitbucket",
-      packageDescription: "test",
-      packageIcon: "",
+      environment,
+      package: "BitBucket",
+      packageDescription: "workerB package for bitbucket.com",
+      packageIcon: "src/actions/logo.png",
       readmeFile: "README.md",
-      folderDescriptionList: [
-        {
-          path: "/boards",
-          description: "Display all the boards",
-          iconPath: "",
-        },
-        {
-          path: "",
-          description: "Display all the lists of the board",
-        },
-      ],
+      sites: ["https://www.bitbucket.com"],
+      folderDescriptionList,
     }),
   ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          output: {
+            comments: /(@description|@name|@ignore)/i,
+          },
+        },
+      }),
+    ],
+  },
 };

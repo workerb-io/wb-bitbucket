@@ -1,22 +1,21 @@
-import { fetchWithAuth } from "utils/helper"
+import { fetchWithAuth } from "../../../../utils/helper";
 
-let repositories: any[] | null = null
+let repositories: any[] | null = null;
 
 const returnOptions = () => {
+  if (!options.workspaces) {
+    return {};
+  }
 
-	if (!options.workspaces) {
-		return {}	
-	}
+  repositories = fetchWithAuth(`repositories/${options.workspaces.uuid}`);
 
-	repositories = fetchWithAuth(`repositories/${options.workspaces.uuid}`)
+  if (!repositories) {
+    return {};
+  }
 
-	if (!repositories) {
-		return {}	
-	}
+  return JSON.stringify({
+    add: repositories,
+  });
+};
 
-	return JSON.stringify({
-		add: repositories
-	})
-}
-
-export default returnOptions
+export default returnOptions;

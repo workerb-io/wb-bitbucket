@@ -1,22 +1,23 @@
-import { fetchWithAuth} from "utils/helper"
+import { fetchWithAuth } from "../../../../../../utils/helper";
 
-let prs: any[] | null = null
+let prs: any[] | null = null;
 
 const returnOptions = () => {
+  if (!options.workspaces || !options.repos) {
+    return {};
+  }
 
-    if (!options.workspaces || !options.repos) {
-        return {}
-    }
+  prs = fetchWithAuth(
+    `repositories/${options.workspaces.uuid}/${options.repos.slug}/pullrequests/`
+  );
 
-    prs = fetchWithAuth(`repositories/${options.workspaces.uuid}/${options.repos.slug}/pullrequests/`)
+  if (!prs) {
+    return {};
+  }
 
-	if (!prs) {
-		return {}
-	}
+  return JSON.stringify({
+    add: prs.map((pr) => ({ ...pr, name: pr.title })),
+  });
+};
 
-	return JSON.stringify({
-		add: prs.map(pr => ({...pr, name: pr.title}))
-	})
-}
-
-export default returnOptions
+export default returnOptions;
