@@ -29,7 +29,7 @@ const folderDescriptionList = [
   {
     path: "/workspaces/option/repos",
     iconPath: "src/actions/workspaces/option/repos/repos_logo.png",
-    description: "List all the branches of a repo",
+    description: "List all repos for a workspace",
   },
   {
     path: "/workspaces/option/repos/option/branches",
