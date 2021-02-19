@@ -1,0 +1,20 @@
+{
+		"name": "option",
+		"description": "",
+		"scripts": [{
+	  "name": "open",
+	  "file": "open.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "PRs",
+	  "file": "PRs",
+	  "type": "folder",
+	  "description": "List all the PRs of a repo"
+	},{
+	  "name": "branches",
+	  "file": "branches",
+	  "type": "folder",
+	  "description": "List all the branches of a repo"
+	}]
+	}

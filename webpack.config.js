@@ -21,7 +21,26 @@ const entryPaths = helpers
   .map((file) => file.replace(".ts", ""));
 
 const folderDescriptionList = [
-  
+  {
+    path: "/workspaces",
+    iconPath: "src/actions/workspaces/workspaces_logo.png",
+    description: "Workspaces for the current user",
+  },
+  {
+    path: "/workspaces/option/repos",
+    iconPath: "src/actions/workspaces/option/repos/repos_logo.png",
+    description: "List all the branches of a repo",
+  },
+  {
+    path: "/workspaces/option/repos/option/branches",
+    iconPath: "src/actions/workspaces/option/repos/option/branches/branch_logo.png",
+    description: "List all the branches of a repo",
+  },
+  {
+    path: "/workspaces/option/repos/option/PRs",
+    iconPath: "src/actions/workspaces/option/repos/option/PRs/pr_logo.png",
+    description: "List all the PRs of a repo",
+  },
 ];
 
 module.exports = {

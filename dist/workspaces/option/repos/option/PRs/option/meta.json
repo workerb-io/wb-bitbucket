@@ -1,0 +1,20 @@
+{
+		"name": "option",
+		"description": "",
+		"scripts": [{
+	  "name": "decline",
+	  "file": "decline.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "merge",
+	  "file": "merge.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "open",
+	  "file": "open.js",
+	  "type": "action",
+	  "description": ""
+	}]
+	}

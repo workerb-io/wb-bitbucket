@@ -1,0 +1,26 @@
+{
+		"name": "Bitbucket",
+		"description": "workerB package for bitbucket.com",
+		"icon": "icons/logo0f926f9e-70c1-46aa-a38d-70ddc63eb634.png",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "search",
+	  "file": "search.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "setup",
+	  "file": "setup.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "workspaces",
+	  "file": "workspaces",
+	  "type": "folder",
+	  "description": "Workspaces for the current user"
+	}]
+	}
